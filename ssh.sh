@@ -3,7 +3,6 @@ until
 		echo "1.centos"
 		echo "2.ubuntu"
 		read input
-		test $input = 2
 		do
 			case $input in
 			1)sudo passwd
