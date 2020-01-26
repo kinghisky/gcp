@@ -1,17 +1,5 @@
-#!/bin/sh
-until
-		echo "1.centos"
-		echo "2.ubuntu"
-		read input
-		do
-			case $input in
-			1)sudo passwd
+#!/bin/bash
+sudo passwd
 sudo sed -i 's|PermitRootLogin no|PermitRootLogin yes|' /etc/ssh/sshd_config
 sudo sed -i 's|PasswordAuthentication no|PasswordAuthentication yes|' /etc/ssh/sshd_config
-sudo /etc/init.d/ssh restart;;
-			2)sudo passwd
-sudo sed -i 's|PermitRootLogin prohibit-password|#PermitRootLogin prohibit-password|' /etc/ssh/sshd_config
-sudo sed -i 's|PasswordAuthentication no|PasswordAuthentication yes|' /etc/ssh/sshd_config
-sudo service ssh restart;;
-      esac
-			done
+sudo /etc/init.d/ssh restart
